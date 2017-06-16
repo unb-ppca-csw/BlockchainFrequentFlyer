@@ -1,7 +1,16 @@
-## Welcome to GitHub Pages
+## Uma implementação para uso do Blockchain para a matéria de Construção de Software - UnB - Junho/Julho - 2017
 
-You can use the [editor on GitHub](https://github.com/haroldomendes/blockchain/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+A ideia é fazer uma implementação para usar as vantagens da estrutura do Blockchain na contagem de pontos dos cartões de crédito e/ou milhagem para uso de troca de itens e voos aereos.
 
+Os administradores utilizam o controle de contagem de pontos/milhagem que já existia antes, e que sempre foi usado para este fim, o controle centralizado das transações e o uso de um ponto único para a verificação das transações.
+
+A ideia é a substituição desta tecnologia por algo mais rápido, seguro e mais economico.
+
+O uso de blockchain tras as seguintes vangatens perante ao modelo já estabelecido:
+
+1. **Tamanho do banco de dados distribuido**: os bancos de dados usados são grandes e com muitas informações para serem usadas afim de conseguir um nível aceitável de confiança nas transações. A implementação do blockchain irá diminuir em várias vezes menos o tamanho do bando de dados necessário para controlar e garantir a confiança dos usuários e de seus donos.
+
+2. **Rapidez**: por ser menor o tempo usado para este 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
