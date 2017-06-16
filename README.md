@@ -1,4 +1,5 @@
-## Uma implementação para uso do Blockchain para a matéria de Construção de Software - UnB - Junho/Julho - 2017
+## Uma implementação do uso da Blockchain 
+## Matéria de Construção de Software - UnB - Junho/Julho - 2017
 
 A ideia é fazer uma implementação para usar as vantagens da estrutura do Blockchain na contagem de pontos dos cartões de crédito e/ou milhagem para uso de troca de itens e voos aereos.
 
@@ -10,12 +11,18 @@ O uso de blockchain tras as seguintes vangatens perante ao modelo já estabeleci
 
 1. **Tamanho do banco de dados distribuido**: os bancos de dados usados são grandes e com muitas informações para serem usadas afim de conseguir um nível aceitável de confiança nas transações. A implementação do blockchain irá diminuir em várias vezes menos o tamanho do bando de dados necessário para controlar e garantir a confiança dos usuários e de seus donos.
 
-2. **Rapidez**: por ser menor o tempo usado para este 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+2. **Rapidez**: o tempo usado para o processamento das transações é mais rápido que o que hoje os banco usam. Talvez por ser menor o banco de dados, pelas transações terem apenas duas partes (sem o terceiro de confiança), ou por ter o processamento descentralizado, a efetivação e processamento global das transações são mais rápidas.
 
-### Markdown
+3. **Segurança**: com o modelo de banco de dados distribuído com o uso de chaves públicas e privadas a segurança é garantida a um nível muito alto. O esforço computacional para se conseguir burlar o mecanismo de segurança torna inviável a falsificação e com a descentralização e o uso da blockchain a segurança tende a aumentar o nível de segurança.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Sobre a implementação efetuada
+
+Foi realizada a implementação que realiza o controle da pontuação ou das milhares de cada cliente. 
+Assumiremos que existe um banco físico (real) que possui vários clientes e possui vários clientes com cartões de crédito e com programas de milhas/pontos em seus cartões.
+
+Cada usuário possuirá uma carteira que inicialmente não conterá nada e uma carteira do banco onde teremos todos os pontos/créditos/milhagem.
+
+Serão realizadas as ações necessárias para que essas carteiras reflitam o estado atual de créditos disponíveis.
 
 ```markdown
 Syntax highlighted code block
