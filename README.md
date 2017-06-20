@@ -1,4 +1,5 @@
-# Uma implementação do uso da Blockchain 
+# Uma implementação do uso da Blockchain /  BlockchainFrequentFlyerProgram
+
 
 ## Matéria de Construção de Software - UnB - Junho/Julho - 2017
 
@@ -68,6 +69,6 @@ Baixe e instale o Node.js. Uma sugestão de passo-a-passo para o Node.js: https:
 
 Depois que tudo estiver baixado e funcionando, vamos à configuração desta implementação efetivamente:
 
-1. Crie um diretório para o BlockchainFrequentFlyer
-2. Entre no diretório e baixe o projeto: git clone 
+1. Crie um diretório para o  BlockchainFrequentFlyerProgram
+2. Entre no diretório e baixe o projeto: git clone https://github.com/haroldomendes/BlockchainFrequentFlyerProgram
 
