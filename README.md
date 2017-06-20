@@ -1,4 +1,4 @@
-## Uma implementação do uso da Blockchain 
+# Uma implementação do uso da Blockchain 
 ## Matéria de Construção de Software - UnB - Junho/Julho - 2017
 
 A ideia é fazer uma implementação para usar as vantagens da estrutura do Blockchain na contagem de pontos dos cartões de crédito e/ou milhagem para uso de troca de itens e voos aereos.
@@ -15,7 +15,7 @@ O uso de blockchain tras as seguintes vangatens perante ao modelo já estabeleci
 
 3. **Segurança**: com o modelo de banco de dados distribuído com o uso de chaves públicas e privadas a segurança é garantida a um nível muito alto. O esforço computacional para se conseguir burlar o mecanismo de segurança torna inviável a falsificação e com a descentralização e o uso da blockchain a segurança tende a aumentar o nível de segurança.
 
-## Sobre a implementação efetuada
+## Sobre a Implementação
 
 Foi realizada a implementação que realiza o controle da pontuação ou das milhares de cada cliente. 
 Assumiremos que existe um banco físico (real) que possui vários clientes e possui vários clientes com cartões de crédito e com programas de milhas/pontos em seus cartões.
@@ -24,30 +24,27 @@ Cada usuário possuirá uma carteira que inicialmente não conterá nada e uma c
 
 Serão realizadas as ações necessárias para que essas carteiras reflitam o estado atual de créditos disponíveis.
 
-```markdown
-Syntax highlighted code block
+## Sobre o problema
 
-# Header 1
-## Header 2
-### Header 3
+Hoje os bancos possuem cartes de créditos e nestes seus programas de milhagem e vantagens.
+O problema na estrutura atual é a centralização, demandando grande processamento e muito investimento em infraestrutura de rede, de máquinas para processamento e um sistema complexo para dar conta de tantas requisições e 24horas.
 
-- Bulleted
-- List
+## Solução Proposta
 
-1. Numbered
-2. List
+Utilizar a arquitetura já bastante testada do blockchain para substituir e atualizar, acrescentando novas funcionalidades ao controle dos pontos, milhagens e vantagens dos clientes dos cartões de crédito.
 
-**Bold** and _Italic_ and `Code` text
+## O que será implementado nesta fase Alpha?
 
-[Link](url) and ![Image](src)
-```
+Teremos uma versão simples do blockchain no ar, com um esquema para testar o acesso à blockchain privada.
+Os nós presentes na rede poderão acessar suas carteias e verificar o que possuem, trocar entre si seus pontos/créditos.
+A instituição, o banco, poderá é a entidade que criará os pontos distruibuindo-os para as carteiras de seus clientes.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Softwares necessários
 
-### Jekyll Themes
+Foram usados os seguintes softwares para o desenvolvimento da solução:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/haroldomendes/blockchain/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+1. Sistema Operacional: Ubuntu 17.04 Desktop atualizado com todas as atualizações at o dia 20/6/2017;
+2. Implementação do Blockchain: Multichain (https://github.com/MultiChain/multichain) em sua versão 1.0 beta 2;
+3. Biblioteca para Desenvolvimento: Node.js (https://nodejs.org) em sua versão 8.1.2
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
