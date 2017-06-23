@@ -3,13 +3,10 @@
 
 ## Matéria de Construção de Software - UnB - Junho/Julho - 2017
 
-A ideia é fazer uma implementação para usar as vantagens da estrutura do Blockchain na armazenagem e recuperação de informações rápidas.
+A ideia é fazer uma implementação para usar as vantagens da estrutura do Blockchain na contagem de pontos dos cartões de crédito e/ou milhagem para uso de troca de itens e voos aereos.
 
-Muitas vezes escrevemos dados sigilosos em nossos computadores, como senhas e informações sobre sistemas bancários, no entanto, não possuimos uma ferramenta que possamos guardar notas de forma segura.
+Os administradores utilizam o controle de contagem de pontos/milhagem que já existia antes, e que sempre foi usado para este fim, o controle centralizado das transações e o uso de um ponto único para a verificação das transações.
 
-A blockchain é ideal para este aplicação assim como disponibiliza a cadeia de acontecimentos e evoluções do que foi escrito.
-
-O limite das 
 A ideia é a substituição desta tecnologia por algo mais rápido, seguro e mais economico.
 
 O uso de blockchain tras as seguintes vangatens perante ao modelo já estabelecido:
