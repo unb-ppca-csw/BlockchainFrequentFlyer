@@ -5,11 +5,11 @@
 
 A ideia é fazer uma implementação para usar as vantagens da estrutura do Blockchain na contagem de pontos dos cartões de crédito e/ou milhagem para uso de troca de itens e voos aereos.
 
-Os administradores utilizam o controle de contagem de pontos/milhagem que já existia antes, e que sempre foi usado para este fim, o controle centralizado das transações e o uso de um ponto único para a verificação das transações.
+Os administradores (os bancos) utilizam o controle de contagem de pontos/milhagem usando um banco de dados central e demandando uma estrutura central de banco de dados e sua eventual replicação.
 
-A ideia é a substituição desta tecnologia por algo mais rápido, seguro e mais economico.
+A ideia é a substituição desta tecnologia por algo mais rápido, seguro e econômico.
 
-O uso de blockchain tras as seguintes vangatens perante ao modelo já estabelecido:
+O uso de blockchain trás as seguintes vantagens perante o modelo já estabelecido:
 
 1. **Tamanho do banco de dados distribuido**: os bancos de dados usados são grandes e com muitas informações para serem usadas afim de conseguir um nível aceitável de confiança nas transações. A implementação do blockchain irá diminuir em várias vezes menos o tamanho do bando de dados necessário para controlar e garantir a confiança dos usuários e de seus donos.
 
