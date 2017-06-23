@@ -1,4 +1,4 @@
-# Uma implementação do uso da Blockchain /  BlockchainNotes
+# Uma implementação do uso da Blockchain /  BlockchainFrequetFlyer
 
 
 ## Matéria de Construção de Software - UnB - Junho/Julho - 2017
