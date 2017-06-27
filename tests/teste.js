@@ -13,10 +13,8 @@ var multichain = require("multichain-node") ({
 
 multichain.getInfo((err, info) => {
 	if (err) {
-		console.log("Erro ao tentar getInfo");
 		console.log(err);
 	} else {
-		console.log("Funfou coneção");
 		console.log(info);	
 	}		
 	
