@@ -14,8 +14,10 @@ var multichain = require("multichain-node") ({
 multichain.getInfo((err, info) => {
 	if (err) {
 		console.log(err);
+		console.log("\nHouve algum erro na conexão. Favor rever o usuário, a senha e o número da porta e tente realizar o teste novamente");
 	} else {
-		console.log(info);	
+		console.log(info);
+		console.log("\nA conexão foi realizada com sucesso.")
 	}		
 	
 });
