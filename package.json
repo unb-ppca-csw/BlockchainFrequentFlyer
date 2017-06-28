@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/haroldomendes/BlockchainFrequentFlyer/issues"
   },
-  "homepage": "https://github.com/haroldomendes/BlockchainFrequentFlyer#readme"
+  "homepage": "https://github.com/haroldomendes/BlockchainFrequentFlyer#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0"
+  }
 }
