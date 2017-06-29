@@ -30,6 +30,10 @@
   },
   "homepage": "https://github.com/haroldomendes/BlockchainFrequentFlyer#readme",
   "dependencies": {
-    "bluebird": "^3.5.0"
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2"
   }
 }

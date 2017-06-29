@@ -1,58 +1,155 @@
+{
+	margin: 0;
+	padding: 0;
+}
+
+header, footer, aside, nav, article {
+    display: block;
+}
+
 body {
+	display: block;
   padding: 30px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  margin: 0 auto;
+  width: 576px;
+  font: 13px/22px Helvetica, Arial, sans-serif;
+  background: #f0f0f0;  
 }
 
 h2 {
 	margin:0 0 .5em 0;
+    font-size: 28px;
+    line-height: 44px;
+    padding: 22px 0;	
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 11px 0;
+}
+
+p {
+    padding-bottom: 22px;
 }
 
 a {
   color: #00B7FF;
 }
 
-#wrapper {
-	padding-left:312px;
-	position:relative;
+div {
+    display: block;
 }
 
+#wrapper {
+    width: 800px;
+    height:500px;
+}
+
+#first {
+    float:left;
+    width: 33%;
+    height: 100%;
+    background: orange;
+}
+
+#second {
+    float:left;
+    width: 67%;
+    height: 50%;
+    background: green;
+}
+
+#third {
+    float:left;
+    width: 67%;
+    height: 50%;
+    background: fuchsia;
+}
+			
 #userList {
 	margin:0 0 30px 0;
 }
-	#userList table {
-		border-collapse:separate;
-		border-spacing:1px;
-		background:#CCC;
-	}
-		#userList table th {
-			background:#EEE;
-			font-weight:600;
-			padding:10px 20px;
-			text-align:center;
-		}
-		#userList table tbody {
-			padding:0; margin:0;
-			border-collapse:collapse;
-			border-spacing:0px;
-		}
-			#userList table td {
-				background:#FFF;
-				padding:5px 10px;
-				text-align:center;
-			}
+
+#userList table {
+	border-collapse:separate;
+	border-spacing:1px;
+	background:#CCC;
+}
+
+#userList table th {
+	background:#EEE;
+	font-weight:600;
+	padding:10px 20px;
+	text-align:center;
+}
+	
+#userList table tbody {
+	padding:0; margin:0;
+	border-collapse:collapse;
+	border-spacing:0px;
+}
+	
+#userList table td {
+	background:#FFF;
+	padding:5px 10px;
+	text-align:center;
+}
 
 #userInfo {
 	width:250px;
 	position:absolute;
 	top:0; left:0;
 }
-	#userInfo p {
-		padding:15px;
-		border:1px solid #CCC;
-		background:rgba(80,120,255,0.05);
-	}
+
+#userInfo p {
+	padding:15px;
+	border:1px solid #CCC;
+	background:rgba(80,120,255,0.05);
+}
 
 fieldset {
 	border:0;
 	padding:0; margin:0;
 }
+
+label {
+    display:block;
+    margin-top:20px;
+    letter-spacing:2px;
+}
+
+form {
+    margin:0 auto;
+}
+
+input {
+	width:439px;
+	height:27px;
+	background:#efefef;
+	border:1px solid #dedede;
+	padding:10px;
+	margin-top:3px;
+	font-size:0.9em;
+	color:#3a3a3a;
+}
+
+input:focus, textarea:focus {
+    border:1px solid #97d6eb;
+}
+
+#submit {
+    width:127px;
+    height:38px;
+    background:url(images/submit.jpg);
+    text-indent:-9999px;
+    border:none;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+#submit:hover {
+	    opacity:.9;
+}
+

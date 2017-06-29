@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html ng-app>
+	<head>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<style>
+			html 					{ overflow-y:scroll; }
+			body 					{ padding-top:30px; }
+			#todo-form 	 			{ margin-bottom:30px; }
+		</style>
+
+		<script src="js/controllers/main.js"></script> 
+		<script src="js/services/documentos.js"></script> 
+		<script src="js/core.js"></script> 
+		
+		<meta charset="UTF-8">
+		
+		<title>Blockchain Frenquent Flyer Program</title>
+	</head>
+	
+<body>
+		<h2>Blockchain Frenquent Flyer Program</h2>
+
+		<div id="wrapper">
+			<div id="first">
+				Carteira Principal<br>
+				Ela possui {{ carteiras.pai.total }} créditos <br>
+				<form>
+					<label>Quantidade de Créditos</label>
+					<input name="carteiraPai.qtd" class="form-control input-lg" type="number" placeholder="Quantas milhas enviar" ng-model="formData.origem" ng-blur="carregar()"/> <br/>
+					
+					<label>Para qual carteira?</label>
+					<select>
+						<option>carteira 1</option>
+						<option>carteira 2</option>
+					</select>
+					
+					<button type="submit" class="btn btn-primary btn=lg" ng-click="enviaMilhas()">Envia Milhas</button>
+				</form>
+			</div>
+			
+	    	<div id="second">
+	    		<p ng-show="carteira1">
+	    		Carteira 1<br>
+	    		<span class="label label-info">Possui {{ carteiras.filho1.total }} créditos</span>
+	    		</p>
+	    	</div>
+	    	
+	    	<div id="third">
+	    		<p ng-show="carteira2">
+	    		Carteira 2 <br>
+	    		<span class="label label-info">Possui {{ carteiras.filho2.total }} créditos</span>
+	    		
+	    	</div>
+		</div>
+
+	
+</body>
+</html>
