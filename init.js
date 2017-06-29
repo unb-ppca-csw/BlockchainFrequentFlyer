@@ -38,66 +38,89 @@ multichain.getInfo((err, info) => {
 });
 
 // Verifica a configuração padrão existe na blockchain em questão
-const qtdWallets = 3;
-var carteiraBrb, wallets = [], grant1, grant2;
+//const qtdWallets = 3;
+//var carteiraBrb, wallets = [], grant1, grant2;
+//
+//multichain.getAddresses((err,wallets) => {
+//	//console.log(wallets);
+//	var tam = wallets.length; 
+//	if ( tam > (qtdWallets-1) ) {
+//		console.log("1. Já existem "+tam+" carteiras registradas [OK]");
+//		console.log(wallets);
+//	} else {
+//		console.log("1. Será necessário crias "+(3-tam)+" novas carteiras, pois existem apenas "+tam+" carteira");
+//		for (i = tam-1; i < qtdWallets; i++) {
+//			multichain.getNewAddress((err, address) => {
+//				wallets[i] = address;
+//				//console.log(wallets[i]);
+//				if (err) {
+//					console.log(err);
+//				}
+//			});
+//		}
+//	}
+//	
+//	carteiraBrb = {
+//			address: wallets[0],
+//			asset: "milhas",
+//			qty: 1000000,
+//			units: 0.00001,
+//			details: { brb: "Depositando 1 milhão de milhas na Entidade Padrão"}
+//	};
+//	
+//	grant1 = {
+//			address: wallets[1],
+//			permissions: "send,receive"
+//	};
+//	
+//	grant2 = {
+//			address: wallets[2],
+//			permissions: "send,receive"
+//	};
+//	
+//});
+
+//multichain.issue( carteiraBrb, (err, res) => {
+//	//console.log("wallet[0]=["+wallets[0]+"]");
+//	if (res) { console.log(res); };
+//	if (err) { console.log (err); };
+//	
+//	
+//});
+
+//// dar direito a todas as 3 carteiras
+//multichain.grant(grant1, (err,res) => {
+//	console.log(grant1);
+//	console.log(grant2);
+//	if (res) { console.log(res); };
+//	if (err) { console.log (err); };
+//});
+
 
 multichain.getAddresses((err,wallets) => {
-	//console.log(wallets);
-	var tam = wallets.length; 
-	if ( tam > (qtdWallets-1) ) {
-		console.log("1. Já existem "+tam+" carteiras registradas [OK]");
-		console.log(wallets);
-	} else {
-		console.log("1. Será necessário crias "+(3-tam)+" novas carteiras, pois existe apenas "+tam+" carteira");
-		for (i = tam-1; i < qtdWallets; i++) {
-			multichain.getNewAddress((err, address) => {
-				wallets[i] = address;
-				//console.log(wallets[i]);
-				if (err) {
-					console.log(err);
-				}
-			});
-		}
-	}
-	
-	carteiraBrb = {
-			address: wallets[0],
+	if (err) { console.log (err); }
+	else {
+		multichain.sendAssetFrom ( {
+			from: wallets[0],
+			to: wallets[1],
 			asset: "milhas",
-			qty: 1000000,
-			units: 0.00001,
-			details: { brb: "Depositando 1 milhão de milhas na Entidade Padrão"}
-	};
-	
-	grant1 = {
+			qty: 1000
+		}, (err,res) => {
+			if (res) { console.log(res); };
+			if (err) { console.log (err); };
+		});	
+		
+		multichain.sendAsset( {
 			address: wallets[1],
-			permissions: "connect,send,receive,issue,admin"
+			asset: "milhas",
+			qty: 1000
+		}, (err,res) => {
+			if (res) { console.log(res); };
+			if (err) { console.log (err); };
+		});
+		
 	};
-	
-	grant2 = {
-			address: wallets[2],
-			permissions: "connect,send,receive,issue,admin"
-	};
-	
 });
-
-multichain.issue( carteiraBrb, (err, res) => {
-	//console.log("wallet[0]=["+wallets[0]+"]");
-	if (res) { console.log(res); };
-	if (err) { console.log (err); };
-	
-	
-});
-
-// dar direito a todas as 3 carteiras
-multichain.grant(grant1, (err,res) => {
-	console.log(grant1);
-	console.log(grant2);
-	if (res) { console.log(res); };
-	if (err) { console.log (err); };
-});
-
-
-
 
 
 
