@@ -28,7 +28,7 @@ function listIssue(multichain, callback) {
 	});
 };
 
-function listAddresses(multichain, callback) {
+exports.listAddresses = function(multichain, callback) {
 	multichain.getAddresses( (err, addrs) => {
 		if (err) { console.log (err); }
 		else {
@@ -37,7 +37,7 @@ function listAddresses(multichain, callback) {
 	});
 } ;
 
-function createAsset(multichain, nome, endereco, quantidade) {
+exports.createAsset = function(multichain, nome, endereco, quantidade) {
 	criaMoeda = {
 			asset: nome,
 			address: endereco,
@@ -51,7 +51,7 @@ function createAsset(multichain, nome, endereco, quantidade) {
 	});
 };
 
-function grant(multichain, addr) {
+exports.grant = function (multichain, addr) {
 	grants = {
 			addresses: addr,
 			permissions: "receive,send"
@@ -65,7 +65,7 @@ function grant(multichain, addr) {
 /**
  * Tranfere valores do addr1 para addr2
  */
-function transfereValores(multichain, addr1, addr2, valor) {
+exports.transfereValores = function (multichain, addr1, addr2, valor) {
 	// params: '{"name":"milhas","open":true}',
 	transferencia = {
 			from: addr1,

@@ -3,7 +3,7 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var acoes = require("./private/js/acoes.js");
+var acoes = require("./private/js/acoes");
 
 var app = express(); 
 var port = process.env.PORT || 8080;
@@ -34,8 +34,6 @@ app.listen(port);
 console.log("Servidor carregado com o node.js");
 console.log("Configurando a blockchain");
 console.log("Usando a porta "+port);
-console.log("\nA multichain está com essa configuração:");
-console.log(multichain);
 
 multichain.getInfo((err, info) => {
 	if (err) {
