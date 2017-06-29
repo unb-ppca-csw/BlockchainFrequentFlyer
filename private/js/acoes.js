@@ -1,11 +1,17 @@
-function listPermissions(multichain, callback) {
-	multichain.listPermissions({
-		permissions = issue
-	}, (err, res) => {
-		if (err) { console.log (err); }
-		else { return callback(res) }; 
-	});
-}
+//var addr = "";
+//
+//require('dns').lookup(require('os').hostname(), function (err, addr, fam) {
+//	// Recupera o endereço IP da estação que está rodando o servidor
+//	// O blockchain e o servidor node.js devem estar na mesma máquina
+//});
+// 
+////Cria a conexão com a blockchain
+//var multichain = require("multichain-node") ({
+//	host: addr,
+//	port: 9730,
+//	user: "multichainrpc",
+//	pass: "31UBBdADMv5GULtaivU1v4bGwJ7kdfPkFmXJ1Scugmoc"
+//});
 
 function listIssue(multichain, callback) {
 	multichain.listPermissions({

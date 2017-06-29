@@ -9,10 +9,12 @@ module.exports = function (app) {
         //getTodos(req, res);
     });
     
+    // Carga/Load
     app.post('/api/entrada', function (req, res) {
     	carregaDadosCarteiras(req, res);
     });
     
+    // Create
     app.post('/api/documentos', function (req, res) {
 
         var origem = req.body.origem;
@@ -36,7 +38,7 @@ module.exports = function (app) {
         })
 
     });
-}
+};
 
 function carregaDadosCarteiras(req, res) {
 	acoes.listAddresses(acoes.multichain, function (res) {
@@ -51,5 +53,5 @@ function carregaDadosCarteiras(req, res) {
 				});
 			});
 		});
-	};
-}
+	});
+};

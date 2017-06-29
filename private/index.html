@@ -27,15 +27,15 @@
 		<div id="wrapper">
 			<div id="first">
 				Carteira Principal<br>
-				Ela possui {{ carteiras.pai.total }} créditos <br>
+				Ela possui {{ carteiras.pai }} créditos <br>
 				<form>
 					<label>Quantidade de Créditos</label>
 					<input name="carteiraPai.qtd" class="form-control input-lg" type="number" placeholder="Quantas milhas enviar" ng-model="formData.origem" ng-blur="carregar()"/> <br/>
 					
 					<label>Para qual carteira?</label>
 					<select>
-						<option>carteira 1</option>
-						<option>carteira 2</option>
+						<option>filho1</option>
+						<option>filho2</option>
 					</select>
 					
 					<button type="submit" class="btn btn-primary btn=lg" ng-click="enviaMilhas()">Envia Milhas</button>
@@ -45,14 +45,14 @@
 	    	<div id="second">
 	    		<p ng-show="carteira1">
 	    		Carteira 1<br>
-	    		<span class="label label-info">Possui {{ carteiras.filho1.total }} créditos</span>
+	    		<span class="label label-info">Possui {{ carteiras.filho1 }} créditos</span>
 	    		</p>
 	    	</div>
 	    	
 	    	<div id="third">
 	    		<p ng-show="carteira2">
 	    		Carteira 2 <br>
-	    		<span class="label label-info">Possui {{ carteiras.filho2.total }} créditos</span>
+	    		<span class="label label-info">Possui {{ carteiras.filho2 }} créditos</span>
 	    		
 	    	</div>
 		</div>

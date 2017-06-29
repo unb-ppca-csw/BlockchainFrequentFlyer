@@ -3,7 +3,7 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var acoes = require("./private/js/acoes");
+var acoes = require("./private/js/acoes.js");
 
 var app = express(); 
 var port = process.env.PORT || 8080;
@@ -32,32 +32,35 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 app.listen(port);
 
 console.log("Servidor carregado com o node.js");
-console.log("<br><br>Configurando a blockchain");
+console.log("Configurando a blockchain");
+console.log("Usando a porta "+port);
+console.log("\nA multichain está com essa configuração:");
+console.log(multichain);
 
 multichain.getInfo((err, info) => {
 	if (err) {
 		console.log(err);
 		console.log("\nHouve algum erro na conexão. Favor rever o usuário, a senha e o número da porta e tente realizar o teste novamente");
 	} else {
-		listAddresses(multichain, function (res) {
+		acoes.listAddresses(multichain, function (res) {
 			pai = res[0];			
 			filho1 = res[1];
 			filho2 = res[2];
 			
-			createAsset(multichain, "MILHA", pai, 100000, function (resAsset){
+			acoes.createAsset(multichain, "MILHA", pai, 100000, function (resAsset){
 				console.log("Moeda MILHA criada com 100.000 milhas no endereço pai ["+pai+"]");
 			});
 			
-			grant(multichain, filho1);
-			grant(multichain, filho2);
-			transfereValores(multichain, pai, filho1, 100);
-			transfereValores(multichain, pai, filho2, 200);
+			acoes.grant(multichain, filho1);
+			acoes.grant(multichain, filho2);
+			acoes.transfereValores(multichain, pai, filho1, 100);
+			acoes.transfereValores(multichain, pai, filho2, 200);
 			
 		}); 
 	}
 });
 
-require('./private/routes.js')(app);
+require('./private/routes/routes.js')(app);
 
 function listIssue(multichain, callback) {
 	multichain.listPermissions({
