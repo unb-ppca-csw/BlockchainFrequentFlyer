@@ -79,3 +79,13 @@ function transfereValores(multichain, addr1, addr2, valor) {
 		};
 	});
 };
+
+function carregaCarteira(multichain, addr, callback) {
+	multichain.getAddressBalances({addr}, (err, res) =>{
+		for (i=0; i<res.length;i++) {
+			if (res[i].name == "MILHA") {
+				return callback(res[i].qty);
+			}
+		}
+	});
+}

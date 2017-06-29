@@ -3,6 +3,7 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var acoes = require("./private/js/acoes");
 
 var app = express(); 
 var port = process.env.PORT || 8080;
@@ -21,7 +22,7 @@ var multichain = require("multichain-node") ({
 	pass: "31UBBdADMv5GULtaivU1v4bGwJ7kdfPkFmXJ1Scugmoc"
 });
 
-app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/private')); 		// set the static files location /private/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({'extended': 'true'})); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
@@ -56,7 +57,7 @@ multichain.getInfo((err, info) => {
 	}
 });
 
-require('./routes/routes.js')(app);
+require('./private/routes.js')(app);
 
 function listIssue(multichain, callback) {
 	multichain.listPermissions({
