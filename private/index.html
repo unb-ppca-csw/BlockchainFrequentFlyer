@@ -1,62 +1,53 @@
-<!DOCTYPE html>
-
-<html ng-app>
-	<head>
-    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/stylesheets/style.css">
-		<style>
-			html 					{ overflow-y:scroll; }
-			body 					{ padding-top:30px; }
-			#todo-form 	 			{ margin-bottom:30px; }
-		</style>
-
-		<script src="js/controllers/main.js"></script> 
-		<script src="js/services/documentos.js"></script> 
-		<script src="js/core.js"></script> 
-		
-		<meta charset="UTF-8">
-		
-		<title>Blockchain Frenquent Flyer Program</title>
-	</head>
-	
-<body>
-		<h2>Blockchain Frenquent Flyer Program</h2>
-
-		<div id="wrapper">
-			<div id="first">
-				Carteira Principal<br>
-				Ela possui {{ carteiras.pai }} créditos <br>
-				<form>
-					<label>Quantidade de Créditos</label>
-					<input name="carteiraPai.qtd" class="form-control input-lg" type="number" placeholder="Quantas milhas enviar" ng-model="formData.origem" ng-blur="carregar()"/> <br/>
-					
-					<label>Para qual carteira?</label>
-					<select>
-						<option>filho1</option>
-						<option>filho2</option>
-					</select>
-					
-					<button type="submit" class="btn btn-primary btn=lg" ng-click="enviaMilhas()">Envia Milhas</button>
-				</form>
-			</div>
-			
-	    	<div id="second">
-	    		<p ng-show="carteira1">
-	    		Carteira 1<br>
-	    		<span class="label label-info">Possui {{ carteiras.filho1 }} créditos</span>
-	    		</p>
-	    	</div>
-	    	
-	    	<div id="third">
-	    		<p ng-show="carteira2">
-	    		Carteira 2 <br>
-	    		<span class="label label-info">Possui {{ carteiras.filho2 }} créditos</span>
-	    		
-	    	</div>
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">	
+  </head>
+  <body >
+	<h1>Frequent Flyer Program</h1>
+  
+    <tabs>
+      <pane title="Carteira Pai">
+		<div ng-controller="carteiraPai">
+			<span>Esta é Carteira Principal<br>Todos as milhas irão vir desta carteira para as outras</span><br><br>
+			<span>Total de Milhas da Carteira Pai: {{ carteiraPai | currency }}</span><br>			
 		</div>
-
-	
-</body>
+		<hr>
+		
+		<form name="enviaMilhasForm">
+			<span>Envia recursos para as outras carteiras</span> <br><br>
+			<div class="control-group">
+				<label>Enviar quantas milhas? (Digitar múltiplos de 100)</label>
+				<input type="number" name="qtdRecursos" placeholder="12345" required>
+				<span ng-show="enviaMilhasForm.qtdRecursos.$error.required && !enviaMilhasForm.qtdRecursos.$pristine" class="help-inline">Required {{enviaMilhasForm.qtdRecursos.$pristine}}</span>
+			</div>
+			<div class="control-group">
+				<label>Enviar para qual carteira?</label>
+				<select name="carteiraDestino" required>
+					<option value="1">Carteira 1</option>
+					<option value="2">Carteira 2</option>
+				</select>
+				<span ng-show="enviaMilhasForm.carteiraDestino.$error.required && !enviaMilhasForm.carteiraDestino.$pristine" class="help-inline">Required</span>
+			</div>
+			<button ng-click="enviaMilhas()" ng-disabled="enviaMilhasForm.$invalid" class="btn btn-primary">Envia Milhas</button>
+		</form>
+		
+      </pane>
+      <pane title="Carteira Filho 1">	  
+		<div ng-controller="carteiraFilho1">		
+			<span>Esta é Carteira Filho 1<br>Pode apenas receber recursos da carteira Pai</span><br><br>
+			<span>Total de Milhas da Carteira 1: {{ carteiraFilho1 | currency }}</span><br>
+		</div>
+      </pane>
+	  <pane title="Carteira Filho 2">
+        <div ng-controller="carteiraFilho2">
+			<span>Esta é Carteira Filho 2<br>Pode apenas receber recursos da carteira Pai</span><br><br>
+			<span>Total de Milhas da Carteira 2: {{ carteiraFilho2 | currency }}</span><br>
+        </div>
+      </pane>
+    </tabs>
+  </body>
 </html>
