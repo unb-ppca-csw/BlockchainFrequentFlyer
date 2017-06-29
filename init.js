@@ -25,17 +25,18 @@ multichain.getInfo((err, info) => {
 		console.log(err);
 		console.log("\nHouve algum erro na conexão. Favor rever o usuário, a senha e o número da porta e tente realizar o teste novamente");
 	} else {
-		listPermissionsIssue(multichain, function (res) {
-			pai = res[0];
+		listAddresses(multichain, function (res) {
+			pai = res[0];			
 			filho1 = res[1];
 			filho2 = res[2];
 			
-//			createAsset(multichain, "MILHA", pai, 100000, function (resAsset){
-//				console.log("Moeda MILHA criada com 100.000 milhas no endereço pai ["+pai+"]");
-//			});
+			createAsset(multichain, "MILHA", pai, 100000, function (resAsset){
+				console.log("Moeda MILHA criada com 100.000 milhas no endereço pai ["+pai+"]");
+			});
 			
-//			grant(multichain, filho1, filho2);
-//			transfereValores(multichain, pai, filho1, 100);
+			grant(multichain, filho1);
+			grant(multichain, filho2);
+			transfereValores(multichain, pai, filho1, 100);
 			transfereValores(multichain, pai, filho2, 200);
 			
 		}); 
@@ -174,7 +175,7 @@ multichain.getInfo((err, info) => {
 
 
 
-function listPermissionsIssue(multichain, callback) {
+function listIssue(multichain, callback) {
 	multichain.listPermissions({
 		permissions: "issue"
 	}, (err, res) => {
@@ -184,18 +185,23 @@ function listPermissionsIssue(multichain, callback) {
 		}
 		else {
 			console.log(res);
-			addresses = [];
-			for (i=0; i<res.length;i++) {
-				addresses[i] = res[i].address;
-			};
-			return callback(addresses);
+			return callback(res[0].address);
 		}
 	});
 };
 
-function createAsset(multichain, nome, endereco, quantidade, callback) {
+function listAddresses(multichain, callback) {
+	multichain.getAddresses( (err, addrs) => {
+		if (err) { console.log (err); }
+		else {
+			return callback(addrs);
+		};
+	});
+} ;
+
+function createAsset(multichain, nome, endereco, quantidade) {
 	criaMoeda = {
-			name: nome,
+			asset: nome,
 			address: endereco,
 			open: true,
 			qty: quantidade,
@@ -207,9 +213,9 @@ function createAsset(multichain, nome, endereco, quantidade, callback) {
 	});
 };
 
-function grant(multichain, addr1, addr2) {
+function grant(multichain, addr) {
 	grants = {
-			addresses: addr1 +","+ addr2,
+			addresses: addr,
 			permissions: "receive,send"
 	};
 	multichain.grant(grants, (err,res) => {
@@ -222,14 +228,23 @@ function grant(multichain, addr1, addr2) {
  * Tranfere valores do addr1 para addr2
  */
 function transfereValores(multichain, addr1, addr2, valor) {
+	// params: '{"name":"milhas","open":true}',
 	transferencia = {
 			from: addr1,
-			{ addr2 : valor},
-			action: "send"
+			to: addr2,
+			asset: "MILHA",
+			qty: valor
+//			'{"addr2": {"MILHA":valor}}',
+//			params: '{"'+addr2+'":{"MILHA":'+valor+'}}',
+//			action: "send"
 	};
-	multichain.createRawSendFrom(transferencia, (err,res) => {
-		if (res) { console.log(res); };
-		if (err) { console.log (err); };
+	multichain.sendAssetFrom(transferencia, (err,res) => {
+		if (res) { console.log("Transferência realizada = "+res); };
+		if (err) { 
+			console.log (err);
+			console.log("Transferencia=");
+			console.log(transferencia);
+		};
 	});
 };
 
