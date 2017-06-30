@@ -1,31 +1,42 @@
 angular.module('app', ['components'])
  
 .controller('carteiraPai', function($scope) {
-	$scope.carteiraPai = 1000000;
+	$scope.$on('dados', function (e, carteiras) {
+		$scope.carteiraPai = carteiras.pai;	
+	})
 })
 
 .controller('carteiraFilho1', function($scope) {
-	$scope.carteiraFilho1 = 2000;
+	$scope.$on('dados', function (e, carteiras) {
+		$scope.carteiraFilho1 = carteiras.filho1;	
+	})
 })
 
 .controller('carteiraFilho2', function($scope) {
-	$scope.carteiraFilho2 = 3000;
+	$scope.$on('dados', function (e, carteiras) {
+		$scope.carteiraFilho2 = carteiras.filho2;	
+	})
 })
 
-.controller('carregaCarteiras', ['$scope','$http','Acoes', function($scope, $http, Acoes) {
+.controller('carregaCarteiras', ['$rootScope', '$scope','$http','Acoes', function($rootScope, $scope, $http, Acoes) {
 	// Valores Iniciais
 	$scope.carteiras = [
 		{valor : 1, nome:"Carteira Filho 1"},
 		{valor : 2, nome:"Carteira Filho 2"}
 	];
-	$scope.carteiraPaiNova = 4000000;
 	$scope.master = {};
-//	$scope.wallets = {};
 	
 	// Definição das Funções/Ações
 	$scope.enviaMilhas = function(milha) {
 		Acoes.enviaMilhas();
-//		window.alert('Milhas enviadas!');
+		window.alert('Milhas enviadas!');
+		Acoes.get().then(function (response) {
+			// success
+			$rootScope.$broadcast('dados', response.data.carteiras);		
+		}, function (response) {
+			// error
+			window.alert("error="+response.data);
+		});
 	}
 	
 	$scope.initReset = function(milha) {
@@ -37,12 +48,15 @@ angular.module('app', ['components'])
 	}
 	
 	// Ações Iniciais
-	Acoes.get(); // Atualiza os valores das carteiras na primeira vez que o software for carregado
-//	Acoes.get()
-//		.success(function (data) {
-//			$scope.wallets = data;
-//			$scope.loading = false;
-//		});
+    // Atualiza os valores das carteiras na primeira vez que o software for carregado
+	Acoes.get().then(function (response) {
+		// success
+		$rootScope.$broadcast('dados', response.data.carteiras);		
+	}, function (response) {
+		// error
+		window.alert("error="+response.data);
+	}); 
+
 	$scope.initReset();
 	
 }])
@@ -50,7 +64,7 @@ angular.module('app', ['components'])
 .factory('Acoes', ['$http',function($http) {
 	return {
 		get : function() {
-			return $http.get('/acoes/carregaCarteiras')
+			return $http.get('/acoes/carregaCarteiras');
 		},
 	
 		enviaMilhas: function () {

@@ -52,7 +52,7 @@ function enviaMilhas(req,res) {
 //		var qtd = req.body.milha.qtd;
 		
 		acoes.transfereValores(resp[0], resp[destino], qtd);
-		console.log("AVISO: Está sempre transferindo "+qtd+" para o Filho "+destino+" ["+resp[destino]+"]");
+		console.log("AVISO: Está sendo transferindo "+qtd+" para o Filho "+destino+" ["+resp[destino]+"]");
 	});
 };
 

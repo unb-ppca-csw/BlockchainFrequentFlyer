@@ -23,20 +23,21 @@
 		
 		<form name="formEnvia">
 			<span>Envia recursos para as outras carteiras</span> <br><br>
-			<div class="control-group">
+<!-- 			<div class="control-group">
 				<label>Enviar quantas milhas? (Digitar múltiplos de 100)</label>
 				<input type="number" name="qtd" placeholder="12345" required ng-model="milha.qtd" >
 				<span ng-show="enviaMilhasForm.qtd.$error.required && !enviaMilhasForm.qtd.$pristine" class="help-inline">Required {{enviaMilhasForm.qtd.$pristine}}</span>
 			</div>
+			
 			<div class="control-group">
 				<label>Enviar para qual carteira?</label>
 				<select name="destino" required ng-model="milha.destino">
 					<option ng-repeat="x in carteiras" value="{{x.valor}}">{{x.nome}}</option>
 				</select>				
 				<span ng-show="enviaMilhasForm.destino.$error.required && !enviaMilhasForm.destino.$pristine" class="help-inline">Required</span>
-			</div>
+			</div> -->
 			<button ng-click="enviaMilhas(milha)" ng-disabled="enviaMilhasForm.$invalid" class="btn btn-primary">Envia Milhas</button>
-			<button ng-click="reset()" class="btn btn-primary">Reset</button>
+<!-- 			<button ng-click="reset()" class="btn btn-primary">Reset</button> -->
 		</form>
 		
 		<pre>Ao pressionar em Envia Milhas, será sorteado um dos 2 filhos e será créditado 100 ou 200 Milhas</pre>
