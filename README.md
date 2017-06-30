@@ -121,7 +121,7 @@ npm install
 ```
 e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
 
-5. No diretório raiz do projeto ditite: 
+5. No diretório raiz do projeto digite: 
 ```sh
 
 node init.js
