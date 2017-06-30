@@ -39,11 +39,11 @@ O problema na estrutura atual é a centralização, demandando grande processame
 Utilizar a arquitetura já bastante testada do blockchain para substituir e atualizar, acrescentando novas funcionalidades ao controle dos pontos, milhagens e vantagens dos clientes dos cartões de crédito.
 
 
-## O que será implementado nesta fase Alpha?
+## O que foi implementado?
 
-Teremos uma versão simples do blockchain no ar, com um esquema para testar o acesso à blockchain privada.
-Os nós presentes na rede poderão acessar suas carteias e verificar o que possuem, trocar entre si seus pontos/créditos.
-A instituição, o banco, poderá é a entidade que criará os pontos distruibuindo-os para as carteiras de seus clientes.
+Uma versão do blockchain no ar, com um esquema para testar o acesso à blockchain privada.
+Os nós presentes na rede poderão acessar suas carteias e verificar o que possuem. Os créditos podem ser enviados da carteira Pai para as carteiras filhas (filho1 e filho);
+A instituição, o banco (pais), é a últinca que poderá criará os pontos e distruibuindo-lo para as carteiras de seus clientes.
 
 
 ## Softwares necessários
@@ -51,13 +51,14 @@ A instituição, o banco, poderá é a entidade que criará os pontos distruibui
 Foram usados os seguintes softwares para o desenvolvimento da solução:
 
 1. Sistema Operacional: Ubuntu 17.04 Desktop atualizado com todas as atualizações at o dia 20/6/2017;
-2. Implementação do Blockchain: Multichain (https://github.com/MultiChain/multichain) em sua versão 1.0 beta 2;
+2. Implementação do Blockchain: Multichain (https://github.com/MultiChain/multichain) em sua versão 1.0 beta 2 para o Linux;
 3. Biblioteca para Desenvolvimento: Node.js (https://nodejs.org) em sua versão 8.1.2
+4. Instalar as bibliotecas necessárias para a compilação pelo node, usando o NPM para isso
 
 ## Para colocar para funcionar
 
 Comece instalando o Ubuntu 17.04 em uma máquina virtual, pode se usado qualquer um dos virtualizadores mais usados atualmente.
-Sugiro o uso do VirtualBox ou o VMWare.
+Sugiro o uso do VirtualBox ou o VMWare. Pode ser usada uma máquina real, mas uma VM é mais seguro para 
 Atualize o SO usando os comandos: sudo apt-get update upgrade
 Reinicie
 
@@ -69,6 +70,8 @@ Baixe e instale o Node.js. Uma sugestão de passo-a-passo para o Node.js: https:
 
 Depois que tudo estiver baixado e funcionando, vamos à configuração desta implementação efetivamente:
 
+1. Vá em qualquer diretório e digite multichain-util para verificar este está funcionando
+2. Digite multichain
 1. Crie um diretório para o  BlockchainFrequentFlyerProgram
 2. Entre no diretório e baixe o projeto: git clone https://github.com/haroldomendes/BlockchainFrequentFlyerProgram
-
+3. 
