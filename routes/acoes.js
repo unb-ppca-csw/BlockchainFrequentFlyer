@@ -101,7 +101,7 @@ exports.transfereValores = function (addr1, addr2, valor) {
 	multichain.sendAssetFrom(transferencia, (err,res) => {
 		if (res) { console.log("Transferência realizada = "+res); };
 		if (err) { 
-			console.log (err);
+			console.log(err);
 			console.log("Transferencia=");
 			console.log(transferencia);
 		};
@@ -109,8 +109,13 @@ exports.transfereValores = function (addr1, addr2, valor) {
 };
 
 exports.carregaMilhasCarteira = function (addr, callback) {
-	multichain.getAddressBalances({addr}, (err, res) =>{
-		if (err) { 
+	console.log("carregaMilhasCarteira de "+addr);
+	balanco = {
+			address: addr
+	};
+	multichain.getAddressBalances(balanco, (err, res) =>{
+		if (err) {
+			console.log("Erro ao buscar balanço de "+addr);
 			console.log(err); 
 			return; 
 		}

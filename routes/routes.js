@@ -16,18 +16,21 @@ module.exports = function (app) {
 };
 
 function carregaDadosCarteiras(req, res) {
+	var texto, resposta;
 	acoes.listAddresses(function (resp) {
+		console.log(resp);
 		acoes.carregaMilhasCarteira(resp[0],function (r0) {
-			pai = '{ "pai":'+r0+'}';
+			pai = '"pai":'+r0;
 			acoes.carregaMilhasCarteira(resp[1],function (r1) {
-				filho1 = '{ "filho1:'+r1+'}';
+				filho1 = '"filho1":'+r1;
 				acoes.carregaMilhasCarteira(resp[2],function (r2) {
-					filho2 = '{ "filho2:'+r2+'}';
-					texto = '{ "carteiras": {'+pai+','+filho1+','+filho2+'}}';
-					res.json(JSON.parse(texto));
-					res.body.carteiraPai = 99999;
-					res.body.carteiraFilho1 = 88888;
-					res.bpdy.carteiraFilho2 = 77777;
+					filho2 = '"filho2":'+r2;
+					
+					texto = '{"carteiras": {'+pai+','+filho1+','+filho2+'}}';
+					console.log(texto);
+					
+					resposta = JSON.parse(texto);
+					res.json(resposta);
 				});
 			});
 		});

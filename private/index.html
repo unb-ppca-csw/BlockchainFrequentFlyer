@@ -15,26 +15,25 @@
 			<span>Esta é Carteira Principal<br>Todos as milhas irão vir desta carteira para as outras</span><br><br>
 			<span>Total de Milhas da Carteira Pai: {{ carteiraPai | currency }}</span><br>
 			<span>Total de Milhas da Carteira Pai Nova: {{ carteiraPaiNova | currency }}</span><br>
-			<span>Total de Milhas da Carteira Pai Super Nova: {{ carteiras.pai | currency }}</span><br>
+			<span>Total de Milhas da Carteira Pai Real: {{ carteiras.pai | currency }}</span><br>
 		</div>
 		<hr>
 		
-		<form name="enviaMilhasForm">
+		<form name="formEnvia">
 			<span>Envia recursos para as outras carteiras</span> <br><br>
 			<div class="control-group">
 				<label>Enviar quantas milhas? (Digitar múltiplos de 100)</label>
-				<input type="number" name="qtd" placeholder="12345" required>
+				<input type="number" name="qtd" placeholder="12345" required ng-model="formEnvia.qtd" >
 				<span ng-show="enviaMilhasForm.qtd.$error.required && !enviaMilhasForm.qtd.$pristine" class="help-inline">Required {{enviaMilhasForm.qtd.$pristine}}</span>
 			</div>
 			<div class="control-group">
 				<label>Enviar para qual carteira?</label>
-				<select name="destino">
+				<select name="destino" required ng-model="formEnvia.destino">
 					<option ng-repeat="x in carteiras" value="{{x.valor}}">{{x.nome}}</option>
-				</select>
-				
+				</select>				
 				<span ng-show="enviaMilhasForm.destino.$error.required && !enviaMilhasForm.destino.$pristine" class="help-inline">Required</span>
 			</div>
-			<button ng-click="enviaMilhas()" ng-disabled="enviaMilhasForm.$invalid" class="btn btn-primary">Envia Milhas</button>
+			<button ng-click="enviaMilhas(qtd,destino)" ng-disabled="enviaMilhasForm.$invalid" class="btn btn-primary">Envia Milhas</button>
 		</form>
 		
       </pane>

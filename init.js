@@ -4,6 +4,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var acoes = require("./routes/acoes");
+var favicon = require('serve-favicon');
 
 var app = express(); 
 var port = process.env.PORT || 8080;
