@@ -70,8 +70,15 @@ Baixe e instale o Node.js. Uma sugestão de passo-a-passo para o Node.js: https:
 
 Depois que tudo estiver baixado e funcionando, vamos à configuração desta implementação efetivamente:
 
+# 1a. parte - Servidor Multichain
 1. Vá em qualquer diretório e digite multichain-util para verificar este está funcionando
-2. Digite multichain
-1. Crie um diretório para o  BlockchainFrequentFlyerProgram
-2. Entre no diretório e baixe o projeto: git clone https://github.com/haroldomendes/BlockchainFrequentFlyerProgram
-3. 
+2. Digite multichain-util create FrequentFlyerProgram
+3. Vá até o arquivo ~/.multichain/FrequentFlyerProgram/multichain.dat e copie as informações: rpcuser e rpcuser
+4. Vá até o arquivo ~/.multichain/FrequentFlyerProgram/param.dat e procure por default-rpc-port e anote esse número também
+5. Execute o seguinte comando para inciar o Multichain: multichaind FrequentFlyerProgram -daemon
+
+# 2a. parte - Server HTTP Angular
+1. Crie um diretório para a FrequentFlyerProgram diferente do usado para a multichain
+2. Entre no diretório e baixe o projeto, por exemplo, usando: git clone https://github.com/haroldomendes/BlockchainFrequentFlyer
+3. Entre no diretório criado (BlockchainFrequenteFlyer) e digite: npm install
+4. Edite o arquivo 
