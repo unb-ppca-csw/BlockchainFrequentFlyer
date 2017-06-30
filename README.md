@@ -59,7 +59,10 @@ Foram usados os seguintes softwares para o desenvolvimento da solução:
 
 Comece instalando o Ubuntu 17.04 em uma máquina virtual, pode se usado qualquer um dos virtualizadores mais usados atualmente.
 Sugiro o uso do VirtualBox ou o VMWare. Pode ser usada uma máquina real, mas uma VM é mais seguro para 
-Atualize o SO usando os comandos: sudo apt-get update upgrade
+Atualize o SO usando os comandos: 
+```sh
+sudo apt-get update upgrade
+```
 Reinicie
 
 Após reiniciar, vá ao terminal e baixe o multichain: 
@@ -117,8 +120,12 @@ npm install
 ./routes/acoes.js 
 ```
 e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
-5. No diretório raiz do projeto ditite: node init.js
+5. No diretório raiz do projeto ditite: 
+```sh
 
+node init.js
+
+```sh
 ## Utilização / Teste
 
 O processo de carga irá criar um servidor de aplicação que estará ouvindo na porta 8080 e irá realizar as seguintes ações na blockchain:
