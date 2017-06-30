@@ -125,7 +125,8 @@ e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
 
 node init.js
 
-```sh
+```
+
 ## Utilização / Teste
 
 O processo de carga irá criar um servidor de aplicação que estará ouvindo na porta 8080 e irá realizar as seguintes ações na blockchain:
