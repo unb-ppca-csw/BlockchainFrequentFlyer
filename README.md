@@ -91,10 +91,13 @@ multichain-util create FrequentFlyerProgram
 ```
 3. Vá até o arquivo 
 ```sh
-~/.multichain/FrequentFlyerProgram/multichain.dat
+~/.multichain/FrequentFlyerProgram/multichain.conf
 ``` 
-e copie as informações: `rpcuser` e `rpcuser`
-
+e copie as informações: `rpcuser` e `rpcuser` e acrescente as seguintes linhas:
+```sh
+rcpallowip=<coloque aqui o IP da máquina que irá acessar>
+rcpallowip=127.0.0.1
+```
 4. Vá até o arquivo 
 ```sh
 ~/.multichain/FrequentFlyerProgram/param.dat 
