@@ -120,6 +120,7 @@ npm install
 ./routes/acoes.js 
 ```
 e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
+
 5. No diretório raiz do projeto ditite: 
 ```sh
 
