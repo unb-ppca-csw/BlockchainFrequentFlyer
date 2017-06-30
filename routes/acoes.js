@@ -28,31 +28,15 @@ var multichain = require("multichain-node") ({
 	pass: senha
 });
 
-function listIssue(multichain, callback) {
-	multichain.listPermissions({
-		permissions: "issue"
-	}, (err, res) => {
-		if (err) { 
-			console.log (err);
-			return;
-		}
-		else {
-			console.log(res);
-			return callback(res[0].address);
-		}
-	});
-};
-
 exports.getInfo = function(callback) {
 	multichain.getInfo((err, info) => {
 		if (err) {
 			console.log(err);
 			return;
-		} else {
-			return callback(info);
-		}
+		} 
+		return callback(info);
 	});
-}
+};
 
 exports.listAddresses = function(callback) {
 	multichain.getAddresses( (err, addrs) => {
@@ -61,7 +45,7 @@ exports.listAddresses = function(callback) {
 			return callback(addrs);
 		};
 	});
-} ;
+};
 
 exports.createAsset = function(nome, endereco, quantidade) {
 	criaMoeda = {
@@ -74,6 +58,29 @@ exports.createAsset = function(nome, endereco, quantidade) {
 	multichain.issue(criaMoeda, (err,res) => {
 		if (res) { console.log(res); };
 		if (err) { console.log (err); };
+	});
+};
+
+exports.existeAsset = function (ativo, callback) {
+	lista = {
+			asset: ativo
+	};
+	multichain.listAssets(lista, (err,res) => {
+		if (err) { 
+			console.log(err); 
+			return; 
+		};
+		if (res) {
+			console.log("Fazendo pesquisa do ativo "+ativo+" na blockchain...");
+			for (i=0; i<res.length;i++) {
+				if (res[i].name == ativo) {
+					console.log("Ativo "+ativo+" encontrado");
+					return callback(true);
+				}
+			}
+		}
+		console.log("Ativo "+ativo+" não foi encontrado");
+		return callback(false);
 	});
 };
 
@@ -120,15 +127,11 @@ exports.carregaMilhasCarteira = function (addr, callback) {
 			return; 
 		}
 		console.log(res);
-		if (res instanceof Array) {
-			for (i=0; i<res.length;i++) {
-				if (res[i].name == "MILHA") {
+		if (res instanceof Array)
+			for (i=0; i<res.length;i++)
+				if (res[i].name == "MILHA")
 					return callback(res[i].qty);
-				}
-			}
-		} else {
-			return callback(res.qty);
-		}
+		return callback(res.qty);		
 	});
 }
 

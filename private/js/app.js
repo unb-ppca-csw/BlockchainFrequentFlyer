@@ -24,9 +24,12 @@ angular.module('app', ['components'])
 	
 	// Definição das Funções/Ações
 	$scope.enviaMilhas = function(milha) {
-		$scope.master = angular.copy(milha);
 		Acoes.enviaMilhas();
-		window.alert('Milhas enviadas!');
+//		window.alert('Milhas enviadas!');
+	}
+	
+	$scope.initReset = function(milha) {
+		$scope.master = angular.copy(milha);
 	}
 	
 	$scope.reset = function() {
@@ -40,7 +43,7 @@ angular.module('app', ['components'])
 //			$scope.wallets = data;
 //			$scope.loading = false;
 //		});
-	$scope.reset();
+	$scope.initReset();
 	
 }])
 

@@ -39,13 +39,20 @@ function carregaDadosCarteiras(req, res) {
 
 function enviaMilhas(req,res) {
 	acoes.listAddresses(function (resp) {
-		var destino = "1MnqdszwSnKxgCMyBN33eifgLRqrD5YnotwNoo";
-		var qtd = 100;
-//		var destino = body.milha.destino;
-//		var qtd = body.milha.qtd;
+		var destino = Math.floor((Math.random()*2)+1);
+		var qtd = Math.floor((Math.random()*2)+1) * 100;
 		
-		acoes.transfereValores(resp[0], destino, qtd);
-		console.log("AVISO: Está sempre transferindo 100 para o Filho 2="+destino);
+//		var milha = req.body.milha;
+//		var cart = req.body.carteiras;
+//		
+//		console.log(milha);
+//		console.log(cart);
+		
+//		var destino = req.body.milha.destino;
+//		var qtd = req.body.milha.qtd;
+		
+		acoes.transfereValores(resp[0], resp[destino], qtd);
+		console.log("AVISO: Está sempre transferindo "+qtd+" para o Filho "+destino+" ["+resp[destino]+"]");
 	});
 };
 

@@ -33,13 +33,26 @@ acoes.getInfo(function (res) {
 			filho1 = res[1];
 			filho2 = res[2];
 			
-			acoes.createAsset("MILHA", pai, 100000, function (resAsset){
-				console.log("Moeda MILHA criada com 100.000 milhas no endereço pai ["+pai+"]");
+			acoes.existeAsset("MILHA", function (existe) {
+				if (existe) {
+					console.log("Moeda MILHA já existe. Não há necessidade de criar novos ativos");
+				} else {
+					acoes.createAsset("MILHA", pai, 100000, function (resAsset) {
+						console.log("Moeda MILHA criada com 100.000 milhas no endereço pai ["+pai+"]");
+					});
+				};
 			});
 			
+			console.log("Dando direito ao "+filho1+" para receber e enviar MILHAS.");
 			acoes.grant(filho1);
+			
+			console.log("Dando direito ao "+filho2+" para receber e enviar MILHAS.");
 			acoes.grant(filho2);
+			
+			console.log("Transferindo 100 MILHAS de "+pai+" para o "+filho1);
 			acoes.transfereValores(pai, filho1, 100);
+			
+			console.log("Transferindo 200 MILHAS de "+pai+" para o "+filho2);
 			acoes.transfereValores(pai, filho2, 200);
 		}); 
 	}
