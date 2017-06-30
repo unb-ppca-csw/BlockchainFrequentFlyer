@@ -43,7 +43,7 @@ Utilizar a arquitetura já bastante testada do blockchain para substituir e atua
 
 Uma versão do blockchain no ar, com um esquema para testar o acesso à blockchain privada.
 Os nós presentes na rede poderão acessar suas carteias e verificar o que possuem. Os créditos podem ser enviados da carteira Pai para as carteiras filhas (filho1 e filho);
-A instituição, o banco (pais), é a últinca que poderá criará os pontos e distruibuindo-lo para as carteiras de seus clientes.
+A instituição, o banco (pais), é a única que poderá criar as milhas e distruibui-los para as carteiras de seus clientes.
 
 
 ## Softwares necessários
@@ -62,11 +62,17 @@ Sugiro o uso do VirtualBox ou o VMWare. Pode ser usada uma máquina real, mas um
 Atualize o SO usando os comandos: sudo apt-get update upgrade
 Reinicie
 
-Após reiniciar, vá ao terminal e baixe o multichain: wget http://www.multichain.com/download/multichain-1.0-beta-2.tar.gz
-Siga os passos para instalar e multichain: http://www.multichain.com/download-install/
+Após reiniciar, vá ao terminal e baixe o multichain: 
+```sh
+wget http://www.multichain.com/download/multichain-1.0-beta-2.tar.gz
+```
+Siga os passos para instalar e multichain: `http://www.multichain.com/download-install/`
 
-Para baixar o node.js: wget https://nodejs.org/dist/v8.1.2/node-v8.1.2-linux-x64.tar.xz
-Baixe e instale o Node.js. Uma sugestão de passo-a-passo para o Node.js: https://www.digitalocean.com/community/tutorials/como-instalar-o-node-js-no-ubuntu-16-04-pt
+Para baixar o node.js: 
+```sh
+wget https://nodejs.org/dist/v8.1.2/node-v8.1.2-linux-x64.tar.xz
+```
+Baixe e instale o Node.js. Uma sugestão de passo-a-passo para o Node.js: `https://www.digitalocean.com/community/tutorials/como-instalar-o-node-js-no-ubuntu-16-04-pt`
 
 Depois que tudo estiver baixado e funcionando, vamos à configuração desta implementação efetivamente:
 
@@ -85,6 +91,7 @@ multichain-util create FrequentFlyerProgram
 ~/.multichain/FrequentFlyerProgram/multichain.dat
 ``` 
 e copie as informações: `rpcuser` e `rpcuser`
+
 4. Vá até o arquivo 
 ```sh
 ~/.multichain/FrequentFlyerProgram/param.dat 
@@ -97,9 +104,19 @@ multichaind FrequentFlyerProgram -daemon
 
 # 2a. parte - Server HTTP Angular
 1. Crie um diretório para a FrequentFlyerProgram diferente do usado para a multichain
-2. Entre no diretório e baixe o projeto, por exemplo, usando: git clone https://github.com/haroldomendes/BlockchainFrequentFlyer
-3. Entre no diretório criado (BlockchainFrequenteFlyer) e digite: npm install
-4. Edite o arquivo ./routes/acoes.js e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
+2. Entre no diretório e baixe o projeto, por exemplo, usando: 
+```sh
+git clone https://github.com/haroldomendes/BlockchainFrequentFlyer
+```
+3. Entre no diretório criado (BlockchainFrequenteFlyer) e digite: 
+```sh
+npm install
+```
+4. Edite o arquivo 
+```sh
+./routes/acoes.js 
+```
+e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
 5. No diretório raiz do projeto ditite: node init.js
 
 ## Utilização / Teste
@@ -114,7 +131,7 @@ O processo de carga irá criar um servidor de aplicação que estará ouvindo na
    6.1. Transfere 100 milhas para Filho 1
    6.2. Transfere 200 milhas para Filho 2
 
-Após o processo de carga vá até um navegador da internet e tente acessa o endereço http://endereço-da-máquina:8080 e deverá aparecer uma tela com as informações das 3 carteiras separadas por abas.
+Após o processo de carga vá até um navegador da internet e tente acessa o endereço `http://endereço-da-máquina:8080` e deverá aparecer uma tela com as informações das 3 carteiras separadas por abas.
 Na aba da carteira pai irá aparecer um botão para transferência de recursos aleatórios para as carterias Filho 1 e Filho 2, também aleatoriamente. Pressionando o botão para a transferência, é possível verificar os créditos sendo retirados da Carteia Pai e creditados às carteiras Filhos atualizando a página e mudando de abas.
 
 Todas as informações de pesquisa na blockchain, de escrita, dos valores das transações, das pesquisas realizadas são mostradas com mais detalhes na console do servidor http carregado pelo node.js.
