@@ -39,7 +39,13 @@ function carregaDadosCarteiras(req, res) {
 
 function enviaMilhas(req,res) {
 	acoes.listAddresses(function (resp) {
-		acoes.transfereValores(resp[0], resp[req.body.destino], req.body.qtd);
+		var destino = "1MnqdszwSnKxgCMyBN33eifgLRqrD5YnotwNoo";
+		var qtd = 100;
+//		var destino = body.milha.destino;
+//		var qtd = body.milha.qtd;
+		
+		acoes.transfereValores(resp[0], destino, qtd);
+		console.log("AVISO: Está sempre transferindo 100 para o Filho 2="+destino);
 	});
 };
 

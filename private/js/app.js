@@ -17,32 +17,41 @@ angular.module('app', ['components'])
 	$scope.carteiras = [
 		{valor : 1, nome:"Carteira Filho 1"},
 		{valor : 2, nome:"Carteira Filho 2"}
-	];	
+	];
 	$scope.carteiraPaiNova = 4000000;
+	$scope.master = {};
+//	$scope.wallets = {};
 	
 	// Definição das Funções/Ações
-	$scope.enviaMilhas = function() {
+	$scope.enviaMilhas = function(milha) {
+		$scope.master = angular.copy(milha);
 		Acoes.enviaMilhas();
-		Acoes.get();
+		window.alert('Milhas enviadas!');
+	}
+	
+	$scope.reset = function() {
+		$scope.milha = angular.copy($scope.master);
 	}
 	
 	// Ações Iniciais
 	Acoes.get(); // Atualiza os valores das carteiras na primeira vez que o software for carregado
+//	Acoes.get()
+//		.success(function (data) {
+//			$scope.wallets = data;
+//			$scope.loading = false;
+//		});
+	$scope.reset();
+	
 }])
 
 .factory('Acoes', ['$http',function($http) {
 	return {
 		get : function() {
-			return $http.get('/acoes/carregaCarteiras');
+			return $http.get('/acoes/carregaCarteiras')
 		},
 	
 		enviaMilhas: function () {
 			return $http.get('/acoes/enviaMilhas');
-//			return $http({
-//				method: 'GET',
-//				url: '/acoes/enviaMilhas',
-//				params: 'qtd='+qtd+',destino='+destino
-//			});
 		}
 	}
 }])
