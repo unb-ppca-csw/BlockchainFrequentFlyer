@@ -13,7 +13,9 @@
       <pane title="Carteira Pai">
 		<div ng-controller="carteiraPai">
 			<span>Esta é Carteira Principal<br>Todos as milhas irão vir desta carteira para as outras</span><br><br>
-			<span>Total de Milhas da Carteira Pai: {{ carteiraPai | currency }}</span><br>			
+			<span>Total de Milhas da Carteira Pai: {{ carteiraPai | currency }}</span><br>
+			<span>Total de Milhas da Carteira Pai Nova: {{ carteiraPaiNova | currency }}</span><br>
+			<span>Total de Milhas da Carteira Pai Super Nova: {{ carteiras.pai | currency }}</span><br>
 		</div>
 		<hr>
 		
@@ -21,16 +23,16 @@
 			<span>Envia recursos para as outras carteiras</span> <br><br>
 			<div class="control-group">
 				<label>Enviar quantas milhas? (Digitar múltiplos de 100)</label>
-				<input type="number" name="qtdRecursos" placeholder="12345" required>
-				<span ng-show="enviaMilhasForm.qtdRecursos.$error.required && !enviaMilhasForm.qtdRecursos.$pristine" class="help-inline">Required {{enviaMilhasForm.qtdRecursos.$pristine}}</span>
+				<input type="number" name="qtd" placeholder="12345" required>
+				<span ng-show="enviaMilhasForm.qtd.$error.required && !enviaMilhasForm.qtd.$pristine" class="help-inline">Required {{enviaMilhasForm.qtd.$pristine}}</span>
 			</div>
 			<div class="control-group">
 				<label>Enviar para qual carteira?</label>
-				<select name="carteiraDestino" required>
-					<option value="1">Carteira 1</option>
-					<option value="2">Carteira 2</option>
+				<select name="destino">
+					<option ng-repeat="x in carteiras" value="{{x.valor}}">{{x.nome}}</option>
 				</select>
-				<span ng-show="enviaMilhasForm.carteiraDestino.$error.required && !enviaMilhasForm.carteiraDestino.$pristine" class="help-inline">Required</span>
+				
+				<span ng-show="enviaMilhasForm.destino.$error.required && !enviaMilhasForm.destino.$pristine" class="help-inline">Required</span>
 			</div>
 			<button ng-click="enviaMilhas()" ng-disabled="enviaMilhasForm.$invalid" class="btn btn-primary">Envia Milhas</button>
 		</form>

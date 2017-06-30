@@ -12,29 +12,40 @@ angular.module('app', ['components'])
 	$scope.carteiraFilho2 = 3000;
 })
 
-.controller('carregaCarteiras', function($scope) {
-	console.log("app.js->controller[carregaCarteiras NOVO]");
-})
+.controller('carregaCarteiras', ['$scope','$http','Acoes', function($scope, $http, Acoes) {
+//	$scope.carteiras = {
+//		'pai': 0,
+//		'filho1' :0,
+//		'filho2' :0
+//	};
+//	
+//	$scope.enviaMilhas = {
+//		'qtd':0,
+//		'destino':1
+//	};
+	
+	$scope.carteiras = [
+		{valor : 1, nome:"Carteira Filho 1"},
+		{valor : 2, nome:"Carteira Filho 2"}
+	];
+	
+	$scope.carteiraPaiNova = 4000000;
+	
+	$scope.enviaMilhas = function() {
+		Acoes.enviaMilhas();
+	}
+	
+	Acoes.get();
+}])
 
-//.controller('carregaCarteiras', ['$scope','$http','acoes', function($scope, $http, acoes) {
-//	console.log("app.js->controller[carregaCarteiras]");
-////	acoes.get().success(function (data) {
-////		console.log("app.js->controller[carregaCarteiras]");
-////	})
-//}])
-
-.factory('factoryAcoes', ['$http',function($http) {
+.factory('Acoes', ['$http',function($http) {
 	return {
 		get : function() {
-			console.log("factoryAcoes->app.js");
 			return $http.get('/acoes/carregaCarteiras');
+		},
+	
+		enviaMilhas: function () {
+			return $http.get('/acoes/enviaMilhas');
 		}
-//	,
-//		load : function(todoData) {
-//			return $http.post('/api/entrada', todoData);
-//		},
-//		create : function(todoData) {
-//			return $http.post('/api/documentos', todoData);
-//		}
 	}
 }])
