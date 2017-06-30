@@ -4,13 +4,26 @@
 //	// Recupera o endereço IP da estação que está rodando o servidor
 //	// O blockchain e o servidor node.js devem estar na mesma máquina
 //});
-// 
-////Cria a conexão com a blockchain
+ 
+//Cria a conexão com a blockchain
 //var multichain = require("multichain-node") ({
 //	host: addr,
 //	port: 9730,
 //	user: "multichainrpc",
 //	pass: "31UBBdADMv5GULtaivU1v4bGwJ7kdfPkFmXJ1Scugmoc"
+//});
+
+//var acoes = angular.module('acoes,[]');
+//
+//acoes.factory('acoes', function () {
+//	return {
+//		listAddresses: function () {
+//			multichain.getAddrresses((err,addrs) => {
+//				if (err) { console.log(err); }
+//				else { console.log("Funfou a Fábrica "); }
+//			})
+//		}
+//	};
 //});
 
 function listIssue(multichain, callback) {
