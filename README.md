@@ -9,7 +9,7 @@ Os administradores (os bancos) utilizam o controle de contagem de pontos/milhage
 
 A ideia é a substituição desta tecnologia por algo mais rápido, seguro e econômico.
 
-O uso de blockchain trás as seguintes vantagens perante o modelo já estabelecido:
+O uso de blockchain trás as seguintes vantagens perante o modelo neste momento em utilização:
 
 1. **Tamanho do banco de dados distribuido**: os bancos de dados usados são grandes e com muitas informações para serem usadas afim de conseguir um nível aceitável de confiança nas transações. A implementação do blockchain irá diminuir em várias vezes menos o tamanho do bando de dados necessário para controlar e garantir a confiança dos usuários e de seus donos.
 
@@ -81,4 +81,23 @@ Depois que tudo estiver baixado e funcionando, vamos à configuração desta imp
 1. Crie um diretório para a FrequentFlyerProgram diferente do usado para a multichain
 2. Entre no diretório e baixe o projeto, por exemplo, usando: git clone https://github.com/haroldomendes/BlockchainFrequentFlyer
 3. Entre no diretório criado (BlockchainFrequenteFlyer) e digite: npm install
-4. Edite o arquivo 
+4. Edite o arquivo ./routes/acoes.js e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
+5. No diretório raiz do projeto ditite: node init.js
+
+## Utilização / Teste
+
+O processo de carga irá criar um servidor de aplicação que estará ouvindo na porta 8080 e irá realizar as seguintes ações na blockchain:
+1. Teste de conexão com a blockchain (se os dados estiverem corredos no arquivo ./routes/acoes.js e não houver nenhum impedimento nas regras da rede, o teste irá concluir com sucesso)
+2. Procura por 3 carteiras válidas, se não encontrar, serão criadas - Carteiras Pai, Filho1 e Filho2
+3. Carrega as informações de créditos de cada carteira
+4. Procura pelo ativo MILHA na blockchain, caso não acha, será criada com 100.000 de crédito e a atribui para a carteira Pai
+5. Dá direito para receber e enviar às carteiras Filho 1 e Filho 2
+6. Teste a transferência de ativos realizando:
+   6.1. Transfere 100 milhas para Filho 1
+   6.2. Transfere 200 milhas para Filho 2
+
+Após o processo de carga vá até um navegador da internet e tente acessa o endereço http://endereço-da-máquina:8080 e deverá aparecer uma tela com as informações das 3 carteiras separadas por abas.
+Na aba da carteira pai irá aparecer um botão para transferência de recursos aleatórios para as carterias Filho 1 e Filho 2, também aleatoriamente. Pressionando o botão para a transferência, é possível verificar os créditos sendo retirados da Carteia Pai e creditados às carteiras Filhos atualizando a página e mudando de abas.
+
+Todas as informações de pesquisa na blockchain, de escrita, dos valores das transações, das pesquisas realizadas são mostradas com mais detalhes na console do servidor http carregado pelo node.js.
+
