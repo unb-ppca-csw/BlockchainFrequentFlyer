@@ -33,6 +33,16 @@ acoes.getInfo(function (res) {
 			filho1 = res[1];
 			filho2 = res[2];
 			
+			acoes.carregaMilhasCarteira(pai, function (valor) {
+				console.log (" Carteira Pai ["+pai+"] possui "+valor+" milhas.");
+				acoes.carregaMilhasCarteira(filho1, function (valor) {
+					console.log (" Carteira Filho 1 ["+filho1+"] possui "+valor+" milhas.");
+					acoes.carregaMilhasCarteira(filho2, function (valor) {
+						console.log (" Carteira Filho 2 ["+filho2+"] possui "+valor+" milhas.");
+					});
+				});
+			});
+			
 			acoes.existeAsset("MILHA", function (existe) {
 				if (existe) {
 					console.log("Moeda MILHA já existe. Não há necessidade de criar novos ativos");

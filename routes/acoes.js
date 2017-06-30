@@ -116,7 +116,7 @@ exports.transfereValores = function (addr1, addr2, valor) {
 };
 
 exports.carregaMilhasCarteira = function (addr, callback) {
-	console.log("carregaMilhasCarteira de "+addr);
+	//console.log("carregaMilhasCarteira de "+addr);
 	balanco = {
 			address: addr
 	};
