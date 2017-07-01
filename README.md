@@ -136,10 +136,10 @@ node init.js
 ```sh
 AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: 
 
-Pela natureza ASSINCRONA do Angular, é possível que a sequência
-abaixo não ocorra nesta ordem ideal.
-Talvez seja necessário reiniciar o servidor 2 ou 3 vezes até que tudo 
-esteja carregado e objetos criados na Blochain
+Pela natureza ASSÍNCRONA do Angular, é possível que a sequência
+abaixo não ocorra nesta ordem ideal. Talvez seja necessário reiniciar
+o servidor 2, 3 ou 4 vezes até que tudo  esteja carregado e objetos 
+corretamente criados na Blockchain.
 
 AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: 
 ```
