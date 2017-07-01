@@ -2,9 +2,8 @@
  * Apenas configure essas 3 variáveis 
  * */
 var usuario = "multichainrpc";
-var senha = "31UBBdADMv5GULtaivU1v4bGwJ7kdfPkFmXJ1Scugmoc";
-var porta = 9730;
-
+var senha = "6mcP8SyPao1y12JfoNUigNw4rGpoGfZ1vM2TTbqhHPBa";
+var porta = 4271;
 
 
 
@@ -40,7 +39,10 @@ exports.getInfo = function(callback) {
 
 exports.listAddresses = function(callback) {
 	multichain.getAddresses( (err, addrs) => {
-		if (err) { console.log (err); }
+		if (err) { 
+			console.log (err);
+			return callback({});
+		}
 		else {
 			return callback(addrs);
 		};
@@ -66,9 +68,10 @@ exports.existeAsset = function (ativo, callback) {
 			asset: ativo
 	};
 	multichain.listAssets(lista, (err,res) => {
-		if (err) { 
-			console.log(err); 
-			return; 
+		if (err) {
+			console.log(err);
+			console.log("Ativo "+ativo+" não foi encontrado");
+			return callback(false); 
 		};
 		if (res) {
 			console.log("Fazendo pesquisa do ativo "+ativo+" na blockchain...");
@@ -132,6 +135,17 @@ exports.carregaMilhasCarteira = function (addr, callback) {
 				if (res[i].name == "MILHA")
 					return callback(res[i].qty);
 		return callback(res.qty);		
+	});
+}
+
+exports.getNewAddress = function (callback) {
+	multichain.getNewAddress( (err,res) => {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		console.log("Carteira Criada:"+res);
+		return callback(res);
 	});
 }
 
