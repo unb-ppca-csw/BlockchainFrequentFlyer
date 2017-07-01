@@ -161,3 +161,14 @@ Na aba da carteira pai irá aparecer um botão para transferência de recursos a
 
 Todas as informações de pesquisa na blockchain, de escrita, dos valores das transações, das pesquisas realizadas são mostradas com mais detalhes na console do servidor http carregado pelo node.js.
 
+## Problemas / Bugs Conhecidos
+
+- Na tela principal, as vezes os componentes não se atualizam sozinhos. É necessário uma nova rodada de atualização (pressionando o botão ENVIAR MILHAS ou pressionar F5
+
+
+## Melhorias
+
+- Resolver o bug acrescentando um reload assim que os valores foram atualizados
+- Centralizar a tela para melhor visualização
+- Poder preencher os valores que se quer para passar para as outras carteiras
+
