@@ -134,10 +134,14 @@ node init.js
 ## Utilização / Teste
 
 ```sh
-`AVISO:` Pela natureza Assincrona do Angular, é possível que a sequência
+AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: 
+
+Pela natureza ASSINCRONA do Angular, é possível que a sequência
 abaixo não ocorra nesta ordem ideal.
 Talvez seja necessário reiniciar o servidor 2 ou 3 vezes até que tudo 
 esteja carregado e objetos criados na Blochain
+
+AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: AVISO: 
 ```
 
 O processo de carga irá criar um servidor de aplicação que estará ouvindo na porta 8080 e irá realizar as seguintes ações na blockchain:
