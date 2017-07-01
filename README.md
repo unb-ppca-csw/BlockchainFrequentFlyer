@@ -133,6 +133,11 @@ node init.js
 
 ## Utilização / Teste
 
+```sh
+`AVISO:` Pela natureza Assincrona do Angular, é possível que a sequência abaixo não ocorra nesta ordem ideal
+Talvez seja necessário reiniciar o servidor 2 ou 3 vezes até que tudo esteja carregado e objetos criados na Blochain
+```
+
 O processo de carga irá criar um servidor de aplicação que estará ouvindo na porta 8080 e irá realizar as seguintes ações na blockchain:
 1. Teste de conexão com a blockchain (se os dados estiverem corredos no arquivo ./routes/acoes.js e não houver nenhum impedimento nas regras da rede, o teste irá concluir com sucesso)
 2. Procura por 3 carteiras válidas, se não encontrar, serão criadas - Carteiras Pai, Filho1 e Filho2
