@@ -25,24 +25,24 @@ console.log("Usando a porta "+port);
 
 acoes.getInfo(function (res) {
 	if (!res) {
+		
 		console.log("\nHouve algum erro na conexão. Favor rever o usuário, a senha e o número da porta e tente realizar o teste novamente");
+		
 	} else {
 		console.log(res);
 		acoes.listAddresses(function (res) {
-			pai = res[0];			
+			if (res.length <3) {
+				acoes.getNewAddress(function (add1) {});
+				acoes.getNewAddress(function (add2) {});
+				acoes.getNewAddress(function (add3) {});
+			}
+		});
+		
+		acoes.listAddresses(function (res) {
+			pai = res[0];
 			filho1 = res[1];
 			filho2 = res[2];
-			
-			acoes.carregaMilhasCarteira(pai, function (valor) {
-				console.log (" Carteira Pai ["+pai+"] possui "+valor+" milhas.");
-				acoes.carregaMilhasCarteira(filho1, function (valor) {
-					console.log (" Carteira Filho 1 ["+filho1+"] possui "+valor+" milhas.");
-					acoes.carregaMilhasCarteira(filho2, function (valor) {
-						console.log (" Carteira Filho 2 ["+filho2+"] possui "+valor+" milhas.");
-					});
-				});
-			});
-			
+						
 			acoes.existeAsset("MILHA", function (existe) {
 				if (existe) {
 					console.log("Moeda MILHA já existe. Não há necessidade de criar novos ativos");
@@ -64,7 +64,19 @@ acoes.getInfo(function (res) {
 			
 			console.log("Transferindo 200 MILHAS de "+pai+" para o "+filho2);
 			acoes.transfereValores(pai, filho2, 200);
+
+			
+			acoes.carregaMilhasCarteira(pai, function (valor) {
+				console.log (" Carteira Pai ["+pai+"] possui "+valor+" milhas.");
+				acoes.carregaMilhasCarteira(filho1, function (valor) {
+					console.log (" Carteira Filho 1 ["+filho1+"] possui "+valor+" milhas.");
+					acoes.carregaMilhasCarteira(filho2, function (valor) {
+						console.log (" Carteira Filho 2 ["+filho2+"] possui "+valor+" milhas.");
+					});
+				});
+			});
+
+			console.log("AVISO: Carga dos dados podem ser realizados na ordem incorreta por causa do Angular Assincronizado");
 		}); 
 	}
 });
-
