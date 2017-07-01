@@ -151,7 +151,9 @@ O processo de carga irá criar um servidor de aplicação que estará ouvindo na
 4. Procura pelo ativo MILHA na blockchain, caso não acha, será criada com 100.000 de crédito e a atribui para a carteira Pai
 5. Dá direito para receber e enviar às carteiras Filho 1 e Filho 2
 6. Teste a transferência de ativos realizando:
+
    6.1. Transfere 100 milhas para Filho 1
+   
    6.2. Transfere 200 milhas para Filho 2
 
 Após o processo de carga vá até um navegador da internet e tente acessa o endereço `http://endereço-da-máquina:8080` e deverá aparecer uma tela com as informações das 3 carteiras separadas por abas.
