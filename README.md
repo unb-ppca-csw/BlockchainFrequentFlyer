@@ -93,7 +93,7 @@ multichain-util create FrequentFlyerProgram
 ```sh
 ~/.multichain/FrequentFlyerProgram/multichain.conf
 ``` 
-e copie as informações: `rpcuser` e `rpcuser` e acrescente as seguintes linhas:
+e copie as informações: `rpcuser` e `rpcpassword` e acrescente as seguintes linhas:
 ```sh
 rcpallowip=<coloque aqui o IP da máquina que irá acessar>
 rcpallowip=127.0.0.1
@@ -125,11 +125,13 @@ npm install
 e atualize as 3 primeiras linhas com as informações coletadas na 1a parte
 
 5. No diretório raiz do projeto digite: 
+
 ```sh
 
 node init.js
 
 ```
+
 
 ## Utilização / Teste
 
